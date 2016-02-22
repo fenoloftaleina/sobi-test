@@ -41,3 +41,8 @@ gem 'spring',        group: :development
 gem 'rspec-rails'
 
 gem 'redis'
+
+gem 'haml'
+gem 'underscore-rails'
+
+gem 'pry', group: [:development, :test]

@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header, .messages {
+  padding: 10px 15px;
+}
+
+.header {
+  background: #efefef;
+  border-bottom: 2px solid #afafaf;
+}
+
+td {
+  padding: 5px 15px 5px 0px;
+}
+
+.first-column {
+  font-weight: bold;
+}
+
+h1 {
+  font-weight: normal;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #444;
+}

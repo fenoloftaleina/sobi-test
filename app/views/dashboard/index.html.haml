@@ -1,0 +1,33 @@
+.header
+  %h1 Messages feed
+%table.messages
+
+:javascript
+  var POLLING_TIMEOUT = 5000;
+
+  function displayNewMessages(messages) {
+    _.each(messages, function(message) {
+      var newMessageElement = $(
+      '<tr><td class="first-column">' + message.bike_id +
+        '</td><td>' + message.text + '</td></tr>'
+      );
+
+      newMessageElement.fadeIn(1500);
+      $('.messages').prepend(newMessageElement);
+    });
+  }
+
+  function pollForNewMessages(lastMessageId) {
+    $.get('messages', { last_message_id: lastMessageId }, function(data) {
+      lastMessageId = data.last_message_id;
+
+      displayNewMessages(data.messages);
+    });
+
+    setTimeout(
+      function() { pollForNewMessages(lastMessageId); },
+      POLLING_TIMEOUT
+    );
+  }
+
+  $(function() { pollForNewMessages(null); });

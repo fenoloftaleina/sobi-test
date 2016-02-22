@@ -12,7 +12,7 @@ class MessagesSerializer < Struct.new(:messages_fetcher)
   end
 
   def last_message_id
-    messages.last.id
+    messages.last.try(:id) || messages_fetcher.last_message_id
   end
 
   def serialized_messages

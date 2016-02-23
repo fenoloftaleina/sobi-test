@@ -10,18 +10,18 @@ def random_690_string
     shuffle.join
 end
 
-def publish_message(bike_id)
-  redis = Redis.new
+def publish_message(bike_id, redis_port = nil)
+  redis = Redis.new(port: redis_port || 6379)
   redis.publish CHANNEL_NAME, "#{bike_id},#{random_690_string}"
 end
 
 def main
-  if ARGV.length != 1
-    puts "Usage: #{$0} bike_id"
+  if !(ARGV.length >= 1 && ARGV.length <= 2)
+    puts "Usage: #{$0} bike_id [redis_port]"
     return
   end
 
-  publish_message(ARGV[0])
+  publish_message(ARGV[0], ARGV[1])
 end
 
 main

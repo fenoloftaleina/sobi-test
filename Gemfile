@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 gem 'rspec-rails'
 
 gem 'redis'
+gem 'figaro'
 
 gem 'haml'
 gem 'underscore-rails'

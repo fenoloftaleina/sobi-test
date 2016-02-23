@@ -3,7 +3,7 @@ namespace :server do
   task listen: :environment do
     CHANNEL_NAME = 'sobi-test'
 
-    redis = Redis.new(:timeout => 0)
+    redis = Redis.new(timeout: 0, port: ENV['redis_port'])
 
     redis.subscribe(CHANNEL_NAME) do |on|
       on.message do |_, raw_message|

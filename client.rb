@@ -15,13 +15,16 @@ def publish_message(bike_id, redis_port = nil)
   redis.publish CHANNEL_NAME, "#{bike_id},#{random_690_string}"
 end
 
-def main
-  if !(ARGV.length >= 1 && ARGV.length <= 2)
+def main(args)
+  if !(args.length >= 1 && args.length <= 2)
     puts "Usage: #{$0} bike_id [redis_port]"
-    return
+    return -1
   end
 
-  publish_message(ARGV[0], ARGV[1])
+  publish_message(args[0], args[1])
+  return 0
 end
 
-main
+if __FILE__ == $0
+  main(ARGV)
+end

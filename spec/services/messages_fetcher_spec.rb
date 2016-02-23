@@ -4,6 +4,7 @@ describe MessagesFetcher do
   describe '#call' do
     context 'first time frontend call' do
       it 'returns recent messages' do
+        Message.destroy_all
         message = create_message
         last_message_id = nil
 

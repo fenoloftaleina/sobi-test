@@ -39,6 +39,9 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'rspec-rails'
+gem 'capybara'
+gem 'selenium-webdriver'
+gem 'database_cleaner'
 
 gem 'redis'
 gem 'figaro'
@@ -46,4 +49,4 @@ gem 'figaro'
 gem 'haml'
 gem 'underscore-rails'
 
-gem 'pry', group: [:development, :test]
+gem 'pry-rails', group: [:development, :test]
